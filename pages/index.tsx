@@ -8,6 +8,9 @@ const Home: NextPage = () => {
   const updateUser = async () => {
     await axios.patch('/api/user');
   };
+  const getUser = async () => {
+    await axios.get('/api/user');
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -20,6 +23,11 @@ const Home: NextPage = () => {
         className="mt-4 w-60 rounded-full bg-yellow-500 py-2 px-4 font-bold text-white hover:bg-yellow-700"
         onClick={() => updateUser()}>
         Update User
+      </button>
+      <button
+        className="mt-4 w-60 rounded-full bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+        onClick={() => getUser()}>
+        Get User
       </button>
     </div>
   );

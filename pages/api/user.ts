@@ -17,6 +17,7 @@ export default async function handler(
   }
   const db = getFirestore();
 
+  const targetDoc = 'uxngvlaMwDc0Ye2WnQhN'; //書き換える
   if (req.method === 'POST') {
     const docRef = db.collection(COLLECTION_NAME).doc();
     const insertData = {
@@ -26,7 +27,6 @@ export default async function handler(
     };
     docRef.set(insertData);
   } else if (req.method === 'PATCH') {
-    const targetDoc = 'uxngvlaMwDc0Ye2WnQhN'; //書き換える
     const docRef = db.collection(COLLECTION_NAME).doc(targetDoc);
     const updateData = {
       datano: '1',
@@ -34,6 +34,9 @@ export default async function handler(
       email: 'updateSynfo@example.com',
     };
     docRef.set(updateData);
+  } else if (req.method === 'GET') {
+    const doc = await db.collection(COLLECTION_NAME).doc(targetDoc).get();
+    console.log(doc);
   }
   res.status(200);
 }
