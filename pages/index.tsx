@@ -11,6 +11,9 @@ const Home: NextPage = () => {
   const getUser = async () => {
     await axios.get('/api/user');
   };
+  const deleteUser = async () => {
+    await axios.delete('/api/user');
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -28,6 +31,11 @@ const Home: NextPage = () => {
         className="mt-4 w-60 rounded-full bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
         onClick={() => getUser()}>
         Get User
+      </button>
+      <button
+        className="mt-4 w-60 rounded-full bg-red-500 py-2 px-4 font-bold text-white hover:bg-red-700"
+        onClick={() => deleteUser()}>
+        Delete User
       </button>
     </div>
   );

@@ -37,6 +37,8 @@ export default async function handler(
   } else if (req.method === 'GET') {
     const doc = await db.collection(COLLECTION_NAME).doc(targetDoc).get();
     console.log(doc);
+  } else if (req.method === 'DELETE') {
+    const doc = await db.collection(COLLECTION_NAME).doc(targetDoc).delete();
   }
   res.status(200);
 }
