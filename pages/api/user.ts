@@ -19,8 +19,21 @@ export default async function handler(
 
   if (req.method === 'POST') {
     const docRef = db.collection(COLLECTION_NAME).doc();
-    const insertData = { datano: '1', name: 'Symfo', email: 'symfo@example.com' };
+    const insertData = {
+      datano: '1',
+      name: 'Symfo',
+      email: 'symfo@example.com',
+    };
     docRef.set(insertData);
+  } else if (req.method === 'PATCH') {
+    const targetDoc = 'uxngvlaMwDc0Ye2WnQhN'; //書き換える
+    const docRef = db.collection(COLLECTION_NAME).doc(targetDoc);
+    const updateData = {
+      datano: '1',
+      name: 'updateSynfo',
+      email: 'updateSynfo@example.com',
+    };
+    docRef.set(updateData);
   }
   res.status(200);
 }
