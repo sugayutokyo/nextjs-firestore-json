@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
+import axios from 'axios';
 
 const Home: NextPage = () => {
-  const insertUser = () => {
-    console.log('test');
+  const insertUser = async () => {
+    await axios.post('/api/user');
   }
 
   return (
